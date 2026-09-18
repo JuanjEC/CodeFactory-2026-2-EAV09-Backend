@@ -14,6 +14,12 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error("Fallo la migración:", err.message);
+  console.error("Fallo la migración.");
+  console.error("code:", err.code);
+  console.error("message:", err.message || "(vacío)");
+  if (Array.isArray(err.errors)) {
+    err.errors.forEach((e, i) => console.error(`  causa ${i + 1}:`, e.code, e.message));
+  }
+  console.error(err.stack ?? err);
   process.exit(1);
 });

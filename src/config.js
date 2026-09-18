@@ -11,7 +11,7 @@ function required(name) {
 export const config = {
   port: Number(process.env.PORT ?? 4000),
   databaseUrl: required("DATABASE_URL"),
-  corsOrigins: (process.env.CORS_ORIGIN ?? "http://localhost:3000")
+  corsOrigins: (process.env.CORS_ORIGIN ?? "")
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean),
@@ -22,12 +22,12 @@ export const config = {
   loginLockMinutes: Number(process.env.LOGIN_LOCK_MINUTES ?? 15),
   emailVerificationHours: Number(process.env.EMAIL_VERIFICATION_HOURS ?? 24),
   passwordResetMinutes: Number(process.env.PASSWORD_RESET_MINUTES ?? 60),
-  frontendUrl: process.env.FRONTEND_URL ?? "http://localhost:3000",
+  frontendUrl: process.env.FRONTEND_URL ?? "http://localhost:8080",
   smtp: {
     host: process.env.SMTP_HOST ?? "",
     port: Number(process.env.SMTP_PORT ?? 587),
     user: process.env.SMTP_USER ?? "",
     password: process.env.SMTP_PASSWORD ?? "",
-    from: process.env.SMTP_FROM ?? "Quiero Reservar <no-reply@quieroreservar.com>",
+    from: process.env.SMTP_FROM ?? "",
   },
 };

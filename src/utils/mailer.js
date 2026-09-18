@@ -10,7 +10,7 @@ async function getTransporter() {
         host: config.smtp.host,
         port: config.smtp.port,
         secure: config.smtp.port === 465,
-        auth: config.smtp.user ? { user: config.smtp.user, password: config.smtp.password } : undefined,
+        auth: config.smtp.user ? { user: config.smtp.user, pass: config.smtp.password } : undefined,
       }),
     );
   }
